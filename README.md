@@ -383,6 +383,13 @@ update the use property under `webpack.config.js` rules for `test: /\.(js|jsx)$/
 use: ['babel-loader', 'eslint-loader'],
 ```
 
+Also add to `webpack.config.js`
+```
+resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
+```
+
 And run the script
 
 ```

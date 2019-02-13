@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../components/input';
 
-class FormContainer extends Component {
+class Form extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,4 +29,4 @@ class FormContainer extends Component {
     );
   }
 }
-export default FormContainer;
+export default Form;
