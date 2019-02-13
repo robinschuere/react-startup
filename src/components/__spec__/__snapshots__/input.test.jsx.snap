@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    htmlFor="input"
+  >
+    this
+    <input
+      className="form-control"
+      id="input"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value="is alright"
+    />
+  </label>
+</div>
+`;
