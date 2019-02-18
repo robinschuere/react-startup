@@ -411,7 +411,7 @@ And run the script
 npm start
 ```
 
-We can now cleanup all code that was by default wrong. Eslint is by no means holy, so dare to ignore some values whenever possible.
+We can now cleanup all code that was by default wrong. Eslint is by no means holy, so dare to ignore some values when necessesary.
 
 ## Step 9: Add jest
 
