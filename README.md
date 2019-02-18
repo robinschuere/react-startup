@@ -559,9 +559,7 @@ npm run electron
 
 Eh voila, your app is now running as a standalone Electron app.
 
-## Step 11: Clean the electron a bit up so it works more fluently without 2 npm commands
-
-Since we now have to run both webpack and electron commands to develop simultaneously, we also want to avoiud that specific drag.
+## Step 11: Make electron development a bit easier
 
 add the following code to `start-electron.js`
 
@@ -594,7 +592,7 @@ The above will make it possible to:
 - run the electron-dev command simultaneously with the npm start command for development purposes
 - run the electron-win-dev command for the above but on windows.
 
-And done. You should now be able to run an electron app.
+And done. You should now be able to run both electron app as webApp.
 
 ## Step 12: Create a package installer for different platforms
 
