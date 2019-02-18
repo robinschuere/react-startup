@@ -2,10 +2,11 @@
 Repository holding all information to start a react app bundled with webpack, babel, linter and jest
 
 Extras:
-- pg standalone database
 - electron
-- redux
+- pouchDB / CouchDB or Sqlite (sql.js) / postgres
 - routing
+- react-router / react-router-dom
+- redux
 
 To start the existing project:
 `npm i`
@@ -19,7 +20,14 @@ This project was created to get a better understanding of
 - babel configuration with the new babel values @babel/core
 - eslint config with these new values
 - jest for testing purposes
-- redux for flow
+
+Extras will be added for:
+- electron to create a OS-specific installer
+- add a database for offline / online purposes
+  - pouchDB / couchDB
+  - sqlite / postgres
+- react-router for frontend routing
+- redux for data flow inside the application
 
 To recreate the steps, this guide was created alongside.
 
