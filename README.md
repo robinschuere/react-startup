@@ -588,6 +588,33 @@ The above will make it possible to:
 
 And done. You should now be able to run an electron app.
 
+## Step 12: Create a package installer for different platforms
+
+To create an app installer, we will use a package for doing this values.
+
+```
+npm i -D electron-packager
+```
+
+add the following code to `package.json`
+
+```
+"productName": "Start-Electron"
+```
+
+also add a new script under `scripts`
+
+```
+"electron-package": "electron-packager ."
+```
+
+run the command
+```
+npm run electron-package
+```
+
+a new folder `Start-Electron-darwin-x64` will be created that holds all information for the app. Open the app by installing the `Start-Electron-darwin-x64/Start-Electron.app` on your Mac.
+
 ## Final Steps: clean up
 
 for obvious reasons we don't want to populate our repository with data that is unneccesary.
@@ -601,5 +628,5 @@ Add the following code to `.gitignore`
 ```
 dist
 node_modules
-
+Start-Electron-darwin-x64
 ```
