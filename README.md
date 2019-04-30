@@ -3,10 +3,6 @@ Repository holding all information to start a react app bundled with webpack, ba
 
 Extras:
 - electron
-- pouchDB / CouchDB or Sqlite (sql.js) / postgres
-- routing
-- react-router / react-router-dom
-- redux
 
 To start the existing project:
 `npm i`
@@ -20,25 +16,20 @@ This project was created to get a better understanding of
 - babel configuration with the new babel values @babel/core
 - eslint config with these new values
 - jest for testing purposes
+- electron to create an OS-specific installer
 
-Extras will be added for:
-- electron to create a OS-specific installer
-- add a database for offline / online purposes
-  - pouchDB / couchDB
-  - sqlite / postgres
-- react-router for frontend routing
-- redux for data flow inside the application
-
-To recreate the steps, this guide was created alongside.
-
-Because I simply do not reinvent the light, here is where I got the sauce.
+Because I simply did not reinvented the light, here is where I got the sauce.
 
 - https://www.valentinog.com/blog/react-webpack-babel/
 - https://www.robinwieruch.de/react-eslint-webpack-babel/
 - https://jestjs.io/docs/en/tutorial-react
 - https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c
 
-## Step 1: Create a project
+What does this project still miss?
+- global state management (flux, redux, React-Hooks, React-Context, ...)
+- database management (PouchDb/CouchDB, Postgres, Sqlite, ...)
+
+## Step 1: Create an NPM project
 ```
 mkdir react-startup-go
 cd react-startup-go
@@ -64,7 +55,7 @@ npm i -D webpack webpack-cli
 
 Small reminder, `-D = --save-dev; -S = --save`
 
-After the install of said packages, it is now possible to create a build commend
+After the install of said packages, it is now possible to create a build command
 
 Add the following code to `package.json`
 
@@ -74,15 +65,11 @@ Add the following code to `package.json`
 }
 ```
 
-Done. We can now bundle the app. Hooray!!!
-
 ```
 npm run build
 ```
 
 ## Step 3: Add Babel
-
-Packages you say?
 
 ```
 npm i -D @babel/core babel-loader @babel/preset-env @babel/preset-react
@@ -99,7 +86,7 @@ Add the following code to `.babelrc`
 
 ## Step 4: Create a custom webpack config
 
-Custom you say? Since we will be using React and by extension the `.jsx` files, we need to do some transformation of the files before the code will actually run.
+Since we will be using React and by extension the `.jsx` files, we need to do some transformation of the files before the code will actually run.
 
 ```
 touch webpack.config.js
@@ -123,21 +110,17 @@ module.exports = {
 };
 ```
 
-And, done.
-
 ```
 npm run build
 ```
 
 ## Step 5: Add react
 
-Why all the hassle to create a whole setup for React if we do not use React?
-
 ```
 npm i -S react react-dom prop-types
 ```
 
-We will also create some more project values, so that we have a general understanding of were the files are going to be.
+We will also create a small folder structure, so that we have a general understanding of were the files are going to be.
 
 For easy model understanding:
 - containers hold state
@@ -232,7 +215,7 @@ And re-run the build
 npm run build
 ```
 
-Oh wait, we got our first error!!!!
+If everything went according to plan, we will now receive our first error.
 
 ```
 ERROR in ./src/containers/form.jsx
@@ -240,7 +223,7 @@ Module build failed (from ./node_modules/babel-loader/lib/index.js):
 SyntaxError: /Users/robinschuerewegen/projects/react-startup/src/containers/form.jsx: Support for the experimental syntax 'classProperties' isn't currently enabled (12:16):
 ```
 
-To solve the problem
+To solve the problem, we are going to update our babelrc file to use the experimental classProperties.
 
 ```
 npm i -D @babel/plugin-proposal-class-properties
@@ -251,8 +234,6 @@ Add the following code to `.babelrc`
 ```
   "plugins": ["@babel/plugin-proposal-class-properties"]
 ```
-
-Done. We can now succesfully add React to our project.
 
 ## Step 6: Add a html page so we can actively place our React on a page.
 
@@ -295,7 +276,7 @@ More packages you say?
 npm i -D html-webpack-plugin html-loader
 ```
 
-Replace the code from `webpack.config.js`
+Replace the code from `webpack.config.js` with
 
 ```
 const HtmlWebPackPlugin = require("html-webpack-plugin");
